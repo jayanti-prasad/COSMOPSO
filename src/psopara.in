@@ -1,0 +1,15 @@
+seed_uran=7283363
+ndim=6
+npart=30
+nstops=50
+eps=1.0D-5
+c_pbest=1.4962d0
+c_gbest=1.4962d0
+w=0.7298d0
+c_vmax=0.5d0
+#planck_data=/data1/sysadmin/cjayanti/data/Planck2015/plc_2.0
+planck_data=/data1/pdf/cjayanti/data/Planck2013/data/clik/
+prior_file=priors.inp 
+USE_WMAP=T
+USE_PLANCK=T                           
+ 

@@ -1,0 +1,148 @@
+-----------------------------------------------------------------------               
+                          COSMOPSO  (v1.0) 
+----------------------------------------------------------------------
+Please READ carefully !! 
+
+A. General Instructions : 
+----------------------
+
+1. This is a  cosmological parameter estimation code based on 
+Partcile Swarm Optimization. 
+
+2. This code is close to the code which I used for our PRD Paper 
+(PHYSICAL REVIEW D 85, 123008 (2012)). 
+
+3. You must cite the PRD paper if you use anything from this code 
+or from the paper.
+
+4. Only the programs which are in the folder are orginal and camb 
+and WMAP likelihood code are passed so that one can quickly check.
+
+5. If you want to use this code seriously then you must check 
+the likelihood compuatation in particularly when you want to use 
+Planck data.
+
+6. At the time of writing this README the code was running fine 
+with the WMAP 9 year data. 
+
+
+B. Software Packages needed to compile/run the code 
+-------------------------------------------------
+
+1. WMAP 9 year likelihood code use data file in FITS format 
+   so you must have 'cfitsio' installed.
+
+2. LAPACK/BLAS is must since a lot of linear algebra stuff is done.
+
+3. INTEL fortran compiler (ifort 14+) is needed. 
+
+4. Here I just pass the WMAP 9 likelihood code and not the data
+since that is around 900 MB. You must have copy of WMAP 9 likelihood
+code installed with 'data' folder inside and use that.
+Or you can edit the 'data' line in file :
+wmap_likelihood_v5/WMAP_9yr_options.F90
+
+5. The same is true for Planck Likelihood code plc and data 
+You must have them ready. The path of Planck Likelihood code library
+can be given in the 'Makefile' inside the 'src' directory.
+
+6. This code runs on a cluster with MPI library installed 
+and batch-q system. You must figure out how to submit MPI 
+jobs on your batch-q system.
+
+7. I avoid used commands like 'mpif90' since they unnecessary 
+couple MPI librray with a compiler. I want to keep 
+These things separate so that you have more flexibility.
+The best way to compile your MPI program is :
+
+FC prog.f90 -I/PATHOFMPI/include -L/PATHOFMPI/lib -lmpi ...
+mpirun -np X ./a.out
+
+where 'FC' is your FORTRAN compiler and you must fill the ...
+on compile line. 
+
+C. INPUT/OUTPUT file :
+-------------------
+
+1. The code uses three input files :
+  psopara.in - PSO parameters  
+  priors.inp -  priors for search  
+
+  OUTPUT Files are : 
+  gbest.dat : Has the best-fit point (X)  and value (Y)  
+  pvals.dat : all the sample points
+
+2. It is possible to run the multiple PSO realization
+   and create chains and pass them through COSMOMC chain 
+   processing pipeline. 
+
+ 
+Please check the original papers inside the 'doc' folder.
+
+I will welcome any comment/suggestion.
+---------------------------------------------------------------
+Jayanti Prasad [prasad.jayanti@gmail.com]
+June 14, 2018 
+---------------------------------------------------------------- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

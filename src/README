@@ -1,0 +1,55 @@
+                       COSMOPSO V2.9
+
+A) General Instruction -
+
+- This is the Sept 2014 vesrion of COSMOPSO which is essentially the same as was used in 
+  Prasad & Suradeep 2012 (Phys. Rev. D 85, 123008). However, there are few changes 
+  which have been made here and there to make it more tidy and clean. 
+
+- Now the computation of the cost function (-2log L) is handled by a set of two programs
+  compute_cl.f90 and compute_wmaplike_new.f90 and compute_planck.f90.
+  The first one compute the Cls for the test parameters and the second and the
+  third compute the lilkelihood for MWAP nine year data and Planck temperature data. 
+* It does not seem be working fine for Planck, however, for WMAP nine year data
+  everything is fine.
+
+- Since CAMB uses many extra parameters, apart from the usual six fitting parameters 
+  which we have set in compute_cl.f90. This makes the code more tranparent. 
+
+- Some of the extra parameters, including the flags for using different data sets
+  (TT, EE, TE etc.,) can be set in compute_wmaplike.f90. 
+
+- Now we no longer need any camb input file which was the case for the older version  
+  and everything can be set in compute_cl.f90. 
+
+- The  compute_cl.f90 & compute_wmaplike_new.f90 have been tested and found giving exatcly
+  the same value of -2log L as is expected for the default parameters. 
+
+- The code still need a input parameter file which should have the PSO parameters and
+  the file for the search range.
+
+- Everything related to PSO is in pso.f90, however, I still pass the parameters from outside. 
+
+- Makefile has been compleatly rewritten. Now make goes inside CAMB and WMAP directory,
+  exports flags, maked .mod and creates libcamb.a and libwamp.a which is a cleaner way. 
+
+  
+B. Change Log 
+
+1. Now allmost all the parameters and the options for the data set can be 
+  specified in the parameter file.
+2. Separate programs have been used for computing WMAP nine year and Planck data.
+   Note that Cls are computed from l=1, 2500, however, WMAP nine 
+   year likelihood function used only from l=2,1200 and the data has to be
+   passed carefully (in all the earlier version there was bug and the
+   output was becoming uncertain some time. 
+
+3. One module for writing output has been added. 
+                                                   
+Jayanti Prasad
+October 09, 2014 
+
+
+
+
+

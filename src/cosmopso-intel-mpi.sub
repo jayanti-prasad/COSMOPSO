@@ -1,0 +1,8 @@
+#BSUB -J cosmopso  
+#BSUB -o %J.out
+#BSUB -e %J.err 
+#BSUB -n 6 
+#BSUB -R "span[ptile=1]"
+
+/opt/software/intel/impi/4.1.0.024/intel64/bin/mpirun  -np 6  -genv LD_LIBRARY_PATH=$LD_LIBRRAY_PATH:/data1/sysadmin/cjayanti/data/Planck2013/plc-1.0/lib:/opt/software/intel/lib/intel64/:/opt/software/intel/mkl/lib/intel64/:/data1/sysadmin/cjayanti/Software/cfitsio/lib ./cosmopso psopara.in
+
