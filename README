@@ -7,7 +7,7 @@ A. General Instructions :
 ----------------------
 
 1. This is a  cosmological parameter estimation code based on 
-Partcile Swarm Optimization. 
+Particle Swarm Optimization. 
 
 2. This code is close to the code which I used for our PRD Paper 
 (PHYSICAL REVIEW D 85, 123008 (2012)). 
@@ -15,11 +15,11 @@ Partcile Swarm Optimization.
 3. You must cite the PRD paper if you use anything from this code 
 or from the paper.
 
-4. Only the programs which are in the folder are orginal and camb 
+4. Only the programs which are in the folder are original and camb 
 and WMAP likelihood code are passed so that one can quickly check.
 
 5. If you want to use this code seriously then you must check 
-the likelihood compuatation in particularly when you want to use 
+the likelihood computation in particularly when you want to use 
 Planck data.
 
 6. At the time of writing this README the code was running fine 
@@ -34,7 +34,7 @@ B. Software Packages needed to compile/run the code
 
 2. LAPACK/BLAS is must since a lot of linear algebra stuff is done.
 
-3. INTEL fortran compiler (ifort 14+) is needed. 
+3. INTEL FORTRAN compiler (ifort 14+) is needed. 
 
 4. Here I just pass the WMAP 9 likelihood code and not the data
 since that is around 900 MB. You must have copy of WMAP 9 likelihood
@@ -51,7 +51,7 @@ and batch-q system. You must figure out how to submit MPI
 jobs on your batch-q system.
 
 7. I avoid used commands like 'mpif90' since they unnecessary 
-couple MPI librray with a compiler. I want to keep 
+couple MPI library with a compiler. I want to keep 
 These things separate so that you have more flexibility.
 The best way to compile your MPI program is :
 
